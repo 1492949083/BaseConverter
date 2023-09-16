@@ -1,4 +1,130 @@
 const root = document.documentElement;
+// 获取Abox元素
+const Abox = document.querySelector('.Abox');
+// 获取第二个 meta 元素
+const meta = document.querySelectorAll('meta')[1];
+//获取body元素
+const body = document.querySelector('body');
+// 构造要添加的HTML字符串
+const navBarHTML = `
+        <div class="navBar">
+            <div class="leftBar">
+                <img src="/img/favicon.ico" alt="logo">
+                <a href="/index.html">首页</a>
+                <ul class="p_menu" id="menu">
+                    <li>
+                        <p id="p" href="">项目</p>
+                        <ul id="p_ul1" class="p_ul1">
+                            <li class="p_li1">
+                                <a class="p_li1_a" href="#">上学期作业</a>
+                                <ul class="p_ul2">
+                                    <li><a href="//sweb.mc8.me">Simple-Web</a></li>
+                                    <li><a href="//github.com/1492949083/TurnBasedGenshin">回合制原神</a></li>
+                                    <li><a href="https://github.com/1492949083/PingPongWinRateCalculator">乒乓球胜率计算器</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="">github项目</a>
+                                <ul>
+                                    <li><a href="https://github.com/1492949083/script_c-">c++自动点击</a></li>
+                                    <li><a href="https://github.com/1492949083/AutoClick">Python自动点击</a></li>
+                                    <li><a href="https://github.com/1492949083/AudioDurationCalculator">音频时长总和计算器</a></li>
+                                    <li><a href="https://github.com/1492949083/PingPongWinRateCalculator">乒乓球胜率计算器</a></li>
+                                    <li><a href="https://github.com/1492949083/ProgramController">程序控制器</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="//bc.mc8.me">进制转换器(在做)</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <p id="theme_btn" href="">主题</p>
+            </div>
+            <div class="icon">
+                <a href="https://t.me/ccc007ccc" target="_blank">
+                    <i id="tg" class="fab fa-telegram"></i>
+                </a>
+                <a href="https://gitee.com/ccc007ccc/WebD" target="_blank">
+                    <i id="gitee" class="iconfont icon-gitee"></i>
+                </a>
+                <a href="https://github.com/1492949083/WebD" target="_blank">
+                    <i id="github" class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="themeSelector">
+            <div class="button" id="theme0" onclick="thm0()">
+                <div class="colorBlock0">
+                    <div class="block1"></div>
+                    <div class="block2"></div>
+                </div>
+                <p>默认</p>
+            </div>
+            <div class="button" id="theme1" onclick="thm1()">
+                <div class="colorBlock1">
+                    <div class="block1"></div>
+                    <div class="block2"></div>
+                </div>
+                <p>配色1</p>
+            </div>
+            <div class="button" id="theme2" onclick="thm2()">
+                <div class="colorBlock2">
+                    <div class="block1"></div>
+                    <div class="block2"></div>
+                </div>
+                <p>配色2</p>
+            </div>
+            <div class="button" id="theme3" onclick="thm3()">
+                <div class="colorBlock3">
+                    <div class="block1"></div>
+                    <div class="block2"></div>
+                </div>
+                <p>配色3</p>
+            </div>
+        </div>
+`;
+
+
+function isLocal(local) {
+    if (local == true) {
+        const link = `
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <link rel="stylesheet" href="//at.alicdn.com/t/c/font_4246322_x9378e49s9.css">
+        <link rel="stylesheet" href="/css/base.css">
+        <link rel="stylesheet" href="/css/theme.css">
+        `
+        
+        
+        
+        document.write('<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>');
+        document.write('<script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>');
+        document.write('<script src="/js/navBar.js" type="text/javascript" charset="utf-8"></script>');
+        
+        // 将HTML添加到Abox中
+        Abox.insertAdjacentHTML('afterbegin', navBarHTML);
+        meta.insertAdjacentHTML('afterend', link);    
+    } else {
+        const link = `
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/c/font_4246322_x9378e49s9.css">
+    <link rel="stylesheet" href="//mc8.me/css/base.css">
+    <link rel="stylesheet" href="//mc8.me/css/theme.css">
+    `
+    
+    
+    
+    document.write('<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>');
+    document.write('<script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>');
+    document.write('<script src="//mc8.me/js/navBar.js" type="text/javascript" charset="utf-8"></script>');
+    
+    // 将HTML添加到Abox中
+    Abox.insertAdjacentHTML('afterbegin', navBarHTML);
+    meta.insertAdjacentHTML('afterend', link);
+    }
+}    
+    
+
+isLocal(false)
 // 改变 颜色 变量
 // 默认配色
 // root.style.setProperty('--bg-color', 'rgb(34, 34, 49)');
@@ -8,32 +134,32 @@ const root = document.documentElement;
 // root.style.setProperty('--text-color-accent', 'rgb(255, 201, 120)');
 // base.js
 
-const themes = {
-    theme0: {
-        '--bg-color': 'rgb(34, 34, 49)',
-        '--bg-Dcolor': 'rgb(17, 17, 36)',
-        '--text-color': 'rgb(253, 237, 202)',
-        '--text-color-accent': 'rgb(255, 201, 120)',
-    },
-    theme1: {
-        '--bg-color': '#1e2d39',
-        '--bg-Dcolor': '#0f1a23',
-        '--text-color': '#fff',
-        '--text-color-accent': '#ff9f53',
-    },
-    theme2: {
-        '--bg-color': '#C1DBDA',
-        '--bg-Dcolor': '#5B9391',
-        '--text-color': '#52565e',
-        '--text-color-accent': '#F2987D',
-    },
-    theme3: {
-        '--bg-color': '#f8f5d6',
-        '--bg-Dcolor': '#D5D0A1',
-        '--text-color': '#52565e',
-        '--text-color-accent': '#80d1c8',
-    },
-};
+// const themes = {
+//     theme0: {
+//         '--bg-color': 'rgb(34, 34, 49)',
+//         '--bg-Dcolor': 'rgb(17, 17, 36)',
+//         '--text-color': 'rgb(253, 237, 202)',
+//         '--text-color-accent': 'rgb(255, 201, 120)',
+//     },
+//     theme1: {
+//         '--bg-color': '#1e2d39',
+//         '--bg-Dcolor': '#0f1a23',
+//         '--text-color': '#fff',
+//         '--text-color-accent': '#ff9f53',
+//     },
+//     theme2: {
+//         '--bg-color': '#C1DBDA',
+//         '--bg-Dcolor': '#5B9391',
+//         '--text-color': '#52565e',
+//         '--text-color-accent': '#F2987D',
+//     },
+//     theme3: {
+//         '--bg-color': '#f8f5d6',
+//         '--bg-Dcolor': '#D5D0A1',
+//         '--text-color': '#52565e',
+//         '--text-color-accent': '#80d1c8',
+//     },
+// };
 
 function changeTheme(theme) {
     document.documentElement.className = theme;
