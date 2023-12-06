@@ -1,6 +1,6 @@
 # BaseConverter
 
-#已合并到[WebD](https://github.com/1492949083/WebD)
+# 已合并到[WebD](https://github.com/1492949083/WebD)
 
 学习进制转换</strong>
 
